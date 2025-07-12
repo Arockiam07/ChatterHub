@@ -104,6 +104,7 @@ const App = () => {
       </Routes>
 
       <Toaster />
+      <br/><br/>
     </div>
   );
 };

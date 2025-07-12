@@ -6,18 +6,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #c9e8c9, #b7e7bb);
+  background: linear-gradient(to bottom, #676cfa, #58c6ee);
   height: 100%;
 }
 
-.str-chat__container {
-  max-width: 1200px;
-  width: 100%;
-  height: 80% !important;
-  margin: 0 auto !important;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+.str-chat__channel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #676cfa, #58c6ee);
+  /* height: 100%; */
+}
+
+/* Mobile-only responsiveness */
+@media (max-width: 768px) {
+  .str-chat__channel {
+    /* Full viewport height on mobile */
+    min-height: 100vh;
+    
+    /* Stack children vertically on small screens */
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    
+    /* More mobile-friendly gradient */
+    background: linear-gradient(to bottom, #5a60f5, #4ab8e0);
+    
+    /* Better spacing for mobile */
+    padding: 0;
+  }
+  
+  /* Optional: Use dynamic viewport units if supported */
+  @supports (height: 100dvh) {
+    .str-chat__channel {
+      min-height: 100dvh;
+    }
+  }
 }
 
 .str-chat__list {
@@ -30,5 +54,45 @@
 }
 
 .str-chat__message-input {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
+}
+.str-chat__container {
+  max-width: 1200px;
+  width: 100%;
+  height: 90% !important;
+  margin: 0 auto !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Mobile-only responsiveness (applies only below 768px) */
+@media (max-width: 768px) {
+  .str-chat__container {
+    /* Full viewport coverage */
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    
+    /* Remove decorative elements for full-screen feel */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    
+    /* Fixed positioning to prevent scrolling issues */
+    position: fixed !important;
+    top: 10 !important;
+    left: 0 !important;
+    
+    /* Ensure content doesn't get cut off */
+    overflow-y: auto !important;
+  }
+  
+  /* Optional: Prevent content shifting when mobile address bar hides */
+  @supports (height: 100dvh) {
+    .str-chat__container {
+      height: 82dvh !important;
+    }
+  }
 }
